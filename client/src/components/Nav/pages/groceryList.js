@@ -3,7 +3,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 //import cellEditFactory from 'react-bootstrap-table2-editor';
 import './groceryList.css';
 import API from "../../../utils/API";
-import { moment } from "moment";
+import moment from "moment";
 
 
 // import React from "react";
@@ -119,12 +119,13 @@ class groceryList extends Component {
                 </thead>
                 <tbody>
                   {this.state.products.map(product => {
+                    const formatdate = moment(product.exprDate, "MM/DD/YYYY");
                     return (
                       <tr id={product._id} key={product._id}>
                         {/* <td>{product._id}</td> */}
                         <td>{product.item}</td>
                         <td>{product.qty}</td>
-                        <td>{moment(product.exprDate)}</td>
+                        <td>{formatdate}</td>
                         {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
                         <td><button
                           className="btn btn-info btn-sm"
