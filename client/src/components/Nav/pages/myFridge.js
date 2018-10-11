@@ -4,7 +4,6 @@ import './groceryList.css';
 import API from "../../../utils/API";
 import moment from "moment";
 
-
 class Fridge extends Component {
     state = {
         rows: [{}],
@@ -40,10 +39,10 @@ class Fridge extends Component {
     render() {
         return (
             <div>
-                <div className="container">
+                <div className="wrapContainer">
                     <div className="row clearfix">
                         <div className="col-md-12 column">
-                            <table
+                            <table style={{ textAlign: 'center'}}
                                 className="table table-bordered table-hover"
                                 id="tab_logic"
                             >
@@ -73,11 +72,11 @@ class Fridge extends Component {
                                                 <td>{formattedDate}</td>
                                                 {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
                                                 <td>
-                                                    <button
+                                                    <div  style={{ textAlign: 'center'}}
                                                         className="glyphicon glyphicon-trash"
                                                         onClick={() => this.deleteItem(product._id)}
                                                     >
-                                                    </button>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         )

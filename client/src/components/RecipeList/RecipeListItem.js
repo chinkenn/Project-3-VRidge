@@ -29,7 +29,7 @@ export const RecipeListItem = props => (
          
         </Col>
     <Col sm={6} md={4}>
-    <button href={props.url}>GET THE RECIPE</button>
+    <button><a href={props.url} target="_blank" style={{ textDecoration: 'none', color: '#fff' }}>GET THE RECIPE</a></button>
     </Col>
   </Row>
 </Grid>

@@ -10,9 +10,12 @@
 }
 .nav {
   
-  margin-left: 120px;
-   background-color: #e8e8e8;
+  margin-left: 25px;
+ font-size:18px
 }
+
+.nav-item a { 
+color:darkgreen};
 
 .wrapContainer {
   position: relative;

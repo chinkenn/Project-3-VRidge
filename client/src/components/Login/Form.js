@@ -3,6 +3,7 @@ import { Redirect } from "react-router";
 import "./Form.css";
 // import "./movement.js";
 import Cookies from 'universal-cookie';
+import logo from "../Nav/images/logo.png";
 
 const loginForm = { maxWidth: '360px' };
 
@@ -51,6 +52,7 @@ class FormHeader extends Component {
         <div className="login-bg">
           <div className="login-page">
           <div className="login-form" style={loginForm}>  
+          <img src={logo} width="180" height="90"/>
           <form className="register-form">
             <input 
               type="text" 
