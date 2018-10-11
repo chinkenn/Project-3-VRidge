@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import BootstrapTable from 'react-bootstrap-table-next';
 import './groceryList.css';
-import API from "../../../utils/API"
+import API from "../../../utils/API";
+import { moment } from "moment";
 
 
 class Fridge extends Component {
@@ -26,11 +27,11 @@ class Fridge extends Component {
 
     deleteItem = id => {
         API.toFridge(id, {
-          isTrash: true
+            isTrash: true
         })
-          .then(res => this.loadFridge())
-          .catch(err => console.log(err));
-      }
+            .then(res => this.loadFridge())
+            .catch(err => console.log(err));
+    }
 
     componentDidMount() {
         this.loadFridge(this.state.user);
@@ -66,7 +67,7 @@ class Fridge extends Component {
                                                 {/* <td>{product._id}</td> */}
                                                 <td>{product.item}</td>
                                                 <td>{product.qty}</td>
-                                                <td>{product.exprDate}</td>
+                                                <td>{moment(product.exprDate)}</td>
                                                 {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
                                                 <td>
                                                     <button

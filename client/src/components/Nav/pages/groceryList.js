@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import BootstrapTable from 'react-bootstrap-table-next';
 //import cellEditFactory from 'react-bootstrap-table2-editor';
 import './groceryList.css';
-import API from "../../../utils/API"
+import API from "../../../utils/API";
+import { moment } from "moment";
 
 
 // import React from "react";
@@ -95,10 +96,10 @@ class groceryList extends Component {
   render() {
     return (
       <div>
-                <div className="wrapContainer">
-                    <div className="row clearfix">
-                        <div className="col-md-12 column">
-                            <table
+        <div className="wrapContainer">
+          <div className="row clearfix">
+            <div className="col-md-12 column">
+              <table
                 className="table table-bordered table-hover"
                 id="tab_logic"
               >
@@ -123,7 +124,7 @@ class groceryList extends Component {
                         {/* <td>{product._id}</td> */}
                         <td>{product.item}</td>
                         <td>{product.qty}</td>
-                        <td>{product.exprDate}</td>
+                        <td>{moment(product.exprDate)}</td>
                         {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
                         <td><button
                           className="btn btn-info btn-sm"
@@ -136,7 +137,7 @@ class groceryList extends Component {
                             className="glyphicon glyphicon-trash"
                             onClick={() => this.deleteItem(product._id)}
                           >
-                        </button>
+                          </button>
                         </td>
                       </tr>
                     )
@@ -190,7 +191,7 @@ class groceryList extends Component {
                   ))}
                 </tbody>
               </table>
-              <button  style={{ marginLeft: '10px'}} onClick={this.handleAddRow}>
+              <button style={{ marginLeft: '10px' }} onClick={this.handleAddRow}>
                 Add Row
               </button>
             </div>
