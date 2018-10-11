@@ -62,13 +62,15 @@ class Fridge extends Component {
                                 </thead>
                                 <tbody>
                                     {this.state.products.map(product => {
-                                        const formatdate = moment(product.exprDate, "MM/DD/YYYY");
+                                        // Could change entryDate to exprDate (which is broken) to fix date
+                                        const trimmedDate = product.entryDate.replace(/T.+/, "");
+                                        const formattedDate = moment(trimmedDate).format("MM/DD/YYYY");
                                         return (
                                             <tr id={product._id} key={product._id}>
                                                 {/* <td>{product._id}</td> */}
                                                 <td>{product.item}</td>
                                                 <td>{product.qty}</td>
-                                                <td>{formatdate}</td>
+                                                <td>{formattedDate}</td>
                                                 {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
                                                 <td>
                                                     <button

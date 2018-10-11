@@ -107,7 +107,7 @@ class groceryList extends Component {
                   <h3 style={{ width: '0 auto', borderRadius: '0.25em', textAlign: 'center', border: '1px solid green', padding: '0.5em' }}>Create your grocery list</h3>
                 </caption>
 
-                <thead class="thead-dark">
+                <thead className="thead-dark">
                   <tr>
                     {/* <th className="text-center"> ID </th> */}
                     <th className="text-center"> Item </th>
@@ -119,13 +119,15 @@ class groceryList extends Component {
                 </thead>
                 <tbody>
                   {this.state.products.map(product => {
-                    const formatdate = moment(product.exprDate, "MM/DD/YYYY");
+                    // Could change entryDate to exprDate (which is broken) to fix date
+                    const trimmedDate = product.entryDate.replace(/T.+/, "");
+                    const formattedDate = moment(trimmedDate).format("MM/DD/YYYY");
                     return (
                       <tr id={product._id} key={product._id}>
                         {/* <td>{product._id}</td> */}
                         <td>{product.item}</td>
                         <td>{product.qty}</td>
-                        <td>{formatdate}</td>
+                        <td>{formattedDate}</td>
                         {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
                         <td><button
                           className="btn btn-info btn-sm"
