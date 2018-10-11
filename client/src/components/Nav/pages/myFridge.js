@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BootstrapTable from 'react-bootstrap-table-next';
 import './groceryList.css';
+import Moment from 'react-moment';
 import API from "../../../utils/API"
 
 
@@ -26,11 +27,11 @@ class Fridge extends Component {
 
     deleteItem = id => {
         API.toFridge(id, {
-          isTrash: true
+            isTrash: true
         })
-          .then(res => this.loadFridge())
-          .catch(err => console.log(err));
-      }
+            .then(res => this.loadFridge())
+            .catch(err => console.log(err));
+    }
 
     componentDidMount() {
         this.loadFridge(this.state.user);
@@ -39,7 +40,7 @@ class Fridge extends Component {
     render() {
         return (
             <div>
-                <div className="container">
+                <div className="wrapContainer">
                     <div className="row clearfix">
                         <div className="col-md-12 column">
                             <table
@@ -47,7 +48,7 @@ class Fridge extends Component {
                                 id="tab_logic"
                             >
                                 <caption>
-                                    <h3 style={{ borderRadius: '0.25em', textAlign: 'center', border: '1px solid green', padding: '0.5em' }}>My Fridge</h3>
+                                    <h3 style={{ borderRadius: '0.25em', textAlign: 'center', border: '4px solid green', padding: '0.5em' }}>My Fridge</h3>
                                 </caption>
 
                                 <thead class="thead-dark">
@@ -66,7 +67,7 @@ class Fridge extends Component {
                                                 {/* <td>{product._id}</td> */}
                                                 <td>{product.item}</td>
                                                 <td>{product.qty}</td>
-                                                <td>{product.exprDate}</td>
+                                                <td>< Moment format="MM/DD/YYYY">{product.exprDate}</Moment></td>
                                                 {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
                                                 <td>
                                                     <button

@@ -1,26 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 body { background: #76b852;
-height: 100%;
-}
-
-.login-bg {
-  background: url("../Nav/images/login_bg2.jpg");
+  background: url("../Nav/images/board-bunch-cooking.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
-.login-page {
-  
-  padding: 8%  ;
-  
+.wrapContainer {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  padding: 15px;
+  width:100%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+ 
 }
+
+
 .login-form {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  margin: 175px auto;
-  padding: 45px;
+  margin: 10px auto;
+  padding: 25px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

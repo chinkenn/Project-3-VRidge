@@ -32,7 +32,7 @@ class Recipe extends Component{
   <div>
   <form>
     <div className="form-group">
-      <label htmlFor="search">Search:</label>
+      <h4 htmlFor="search">Search:</h4>
       <input
         onChange={this.handleInputChange}
         value={this.state.recipeSearch}

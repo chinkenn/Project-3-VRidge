@@ -30,7 +30,7 @@ import logo from "./images/logo.png";
       <div className="wrapContainer">
     <nav className="navbar navbar-expand-lg navbar-dark  transparent-nav">
     <div className="container">
-      <a className="" href="#"><img src={logo} width="140" height="70"/></a>
+      <a className="" href="/"><img src={logo} width="140" height="70"/></a>
       {/* <div  onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </div> */}
@@ -70,7 +70,9 @@ import logo from "./images/logo.png";
  </ul>
         </div>
         </div>
-    
+        <div>
+            <h4 style={{ textAlign: "center" }}> {"Welcome back, " + user +"!"}</h4>
+            </div>
   </nav></div>
     );
   }
