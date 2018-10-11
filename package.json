@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "engines": {
-    "node": "9.11.1"
+    "node": "9.11.1",
+    "yarn": "1.9.1"
   },
   "scripts": {
     "start": "npm run start:dev",
@@ -13,7 +14,7 @@
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && yarn install",
-    "build": "npm install yarn && cd client && npm run build",
+    "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "author": "",
