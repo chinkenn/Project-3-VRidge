@@ -1,0 +1,25 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+button {
+ font-family: "Roboto", sans-serif;
+ text-transform: uppercase;
+ outline: 0;
+ background: #4CAF50 !important;
+ max-width: 300px;
+ border: 0;
+ padding: 15px;
+ color: #FFFFFF;
+ font-size: 16px;
+ -webkit-transition: all 0.3 ease;
+ transition: all 0.3 ease;
+ cursor: pointer;
+}
+button:hover, button:active, button:focus {
+ background: #43A047 !important;
+}
+
+.list-group-item {
+ padding: 0.75rem 0 !important;
+ margin-bottom: 20px;
+
+}

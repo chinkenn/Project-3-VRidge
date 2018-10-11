@@ -1,0 +1,40 @@
+.logo{
+  margin-left:60px;
+  margin-right:20px;
+}
+
+
+.navbar>.container, .navbar>.container-fluid {
+  
+  justify-content: start;
+}
+.nav {
+  
+  margin-left: 120px;
+   background-color: #e8e8e8;
+}
+
+.wrapContainer {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  padding: 15px;
+  width:100%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+ 
+}
+
+
+@media (max-width: 768px){
+
+  .nav { margin-left:0;}
+  .navbar>.container, .navbar>.container-fluid {
+
+  justify-content: center};
+
+  .logo{
+    margin-left:20px;
+  }
+
+}
+
