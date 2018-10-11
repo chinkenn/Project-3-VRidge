@@ -11,8 +11,8 @@ margin: 10px;
   background-color: transparent;
 }
 
-.bg {
-  background: url("../images/background.jpg") transparent center center no-repeat;
+body {
+  background: url("../images/background.jpg") burlywood center center no-repeat !important;
   background-size: cover;
 }
 
