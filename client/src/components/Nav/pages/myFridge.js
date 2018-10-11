@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import BootstrapTable from 'react-bootstrap-table-next';
 import './groceryList.css';
-import API from "../../../utils/API";
-import moment from "moment";
+import Moment from 'react-moment';
+import API from "../../../utils/API"
+
 
 class Fridge extends Component {
     state = {
@@ -42,12 +43,12 @@ class Fridge extends Component {
                 <div className="wrapContainer">
                     <div className="row clearfix">
                         <div className="col-md-12 column">
-                            <table style={{ textAlign: 'center'}}
+                            <table
                                 className="table table-bordered table-hover"
                                 id="tab_logic"
                             >
                                 <caption>
-                                    <h3 style={{ borderRadius: '0.25em', textAlign: 'center', border: '1px solid green', padding: '0.5em' }}>My Fridge</h3>
+                                    <h3 style={{ borderRadius: '0.25em', textAlign: 'center', border: '4px solid green', padding: '0.5em' }}>My Fridge</h3>
                                 </caption>
 
                                 <thead class="thead-dark">
@@ -61,22 +62,19 @@ class Fridge extends Component {
                                 </thead>
                                 <tbody>
                                     {this.state.products.map(product => {
-                                        // Could change entryDate to exprDate (which is broken) to fix date
-                                        const trimmedDate = product.entryDate.replace(/T.+/, "");
-                                        const formattedDate = moment(trimmedDate).format("MM/DD/YYYY");
                                         return (
                                             <tr id={product._id} key={product._id}>
                                                 {/* <td>{product._id}</td> */}
                                                 <td>{product.item}</td>
                                                 <td>{product.qty}</td>
-                                                <td>{formattedDate}</td>
+                                                <td>< Moment format="MM/DD/YYYY">{product.exprDate}</Moment></td>
                                                 {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
                                                 <td>
-                                                    <div  style={{ textAlign: 'center'}}
+                                                    <button
                                                         className="glyphicon glyphicon-trash"
                                                         onClick={() => this.deleteItem(product._id)}
                                                     >
-                                                    </div>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         )

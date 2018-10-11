@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import BootstrapTable from 'react-bootstrap-table-next';
 //import cellEditFactory from 'react-bootstrap-table2-editor';
 import './groceryList.css';
-import API from "../../../utils/API";
-import moment from "moment";
+import Moment from 'react-moment';
+//import 'moment-timezone';
+import API from "../../../utils/API"
 
 
 // import React from "react";
@@ -99,17 +100,17 @@ class groceryList extends Component {
         <div className="wrapContainer">
           <div className="row clearfix">
             <div className="col-md-12 column">
-                        <div id="no-more-tables">
-                            <table style={{ textAlign: 'center'}}
-                className="table table-bordered table-hover table-condensed cf"
+              <table
+                className="table table-bordered table-hover"
                 id="tab_logic"
               >
                 <caption>
-                  <h3 style={{ width: '0 auto', borderRadius: '0.25em', textAlign: 'center', border: '1px solid green', padding: '0.5em' }}>Create your grocery list</h3>
+                  <h3 style={{ width: '0 auto', borderRadius: '0.25em', textAlign: 'center', border: '4px solid green', padding: '0.5em' }}>Create your grocery list</h3>
                 </caption>
 
-                <thead class="thead-dark cf">
+                <thead class="thead-dark tb-title">
                   <tr>
+                    {/* <th className="text-center"> ID </th> */}
                     <th className="text-center"> Item </th>
                     <th className="text-center"> Quantity </th>
                     <th className="text-center"> Expiration Date </th>
@@ -119,27 +120,25 @@ class groceryList extends Component {
                 </thead>
                 <tbody>
                   {this.state.products.map(product => {
-                    // Could change entryDate to exprDate (which is broken) to fix date
-                    const trimmedDate = product.entryDate.replace(/T.+/, "");
-                    const formattedDate = moment(trimmedDate).format("MM/DD/YYYY");                    return (
+                    return (
                       <tr id={product._id} key={product._id}>
                         {/* <td>{product._id}</td> */}
-                        <td data-title="Product">{product.item}</td>
-                        <td data-title="Quanity">{product.qty}</td>
-                        <td data-title="Expiration Date">{formattedDate}</td>
+                        <td>{product.item}</td>
+                        <td>{product.qty}</td>
+                        <td>< Moment format="MM/DD/YYYY">{product.exprDate}</Moment></td>
                         {/* <td>{this.handleExprDate(product.exprDate,product.id)}</td> */}
-                        <td data-title="To the Fridge"><button
+                        <td><button
                           className="btn btn-info btn-sm"
                           onClick={() => this.moveToFridge(product._id)}
                         >
                           --> Send to fridge
                         </button></td>
-                        <td data-title="Delete">
-                          <div
+                        <td>
+                          <button
                             className="glyphicon glyphicon-trash"
                             onClick={() => this.deleteItem(product._id)}
                           >
-                        </div>
+                          </button>
                         </td>
                       </tr>
                     )
@@ -147,7 +146,7 @@ class groceryList extends Component {
                   {this.state.rows.map((item, idx) => (
                     <tr id="addr0" key={idx}>
                       {/* <td>{idx}</td> */}
-                      <td data-title="Product" width="40%">
+                      <td>
                         <input
                           type="text"
                           name="item"
@@ -156,7 +155,7 @@ class groceryList extends Component {
                           className="form-control"
                         />
                       </td>
-                      <td data-title="Quanity" width="15%">
+                      <td>
                         <input
                           type="number"
                           name="quantity"
@@ -165,7 +164,7 @@ class groceryList extends Component {
                           className="form-control"
                         />
                       </td>
-                      <td data-title="Expiration Data" width="10%">
+                      <td>
                         <input
                           type="date"
                           name="expirationDate"
@@ -174,7 +173,7 @@ class groceryList extends Component {
                           className="form-control"
                         />
                       </td>
-                      <td data-title="To the Fridge" width="20%" className="text-center">
+                      <td className="text-center">
                         <button
                           className="btn btn-info btn-sm"
                           onClick={this.handleRemoveSpecificRow(idx)}
@@ -182,25 +181,24 @@ class groceryList extends Component {
                           --> Send to fridge
                         </button>
                       </td>
-                      <td data-title="Delete" width="10%" className="text-center">
-                        <div
+                      <td className="text-center">
+                        <button
                           className="glyphicon glyphicon-trash"
                           onClick={this.handleRemoveSpecificRow(idx)}
                         >
-                        </div>
+                        </button>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-                              <button  style={{ marginLeft: '10px'}} onClick={this.handleAddRow}>
+              <button className="btn" style={{ marginLeft: '10px' }} onClick={this.handleAddRow}>
                 Add Row
               </button>
             </div>
           </div>
         </div>
       </div>
-                      </div>
     );
   }
 }
